@@ -1,0 +1,53 @@
+.container {
+	display: flex;
+
+	.sidebar {
+		transition: 0.5s ease;
+
+		&.collapsed {
+			margin-left: -50px;
+		}
+	}
+
+	.content {
+		padding: 50px 30px;
+		margin-left: 270px;
+		transition: 0.5s ease;
+
+		&.collapsed {
+			margin-left: 50px;
+		}
+	}
+}
+
+.buttonUp {
+	position: fixed;
+	padding: 7px;
+	bottom: -3px;
+	right: 40px;
+
+	&:hover {
+		background-color: #222935;
+	}
+
+	&Text {
+		display: none;
+	}
+}
+
+@media (max-width: 600px) {
+	.container {
+		.content {
+			margin-left: 50px; // default mobile
+			&.collapsed {
+				margin-left: 0px; // actually slide all the way under
+			}
+		}
+
+		.sidebar {
+			&.collapsed {
+				margin-left: -270px; // slide the sidebar completely off
+			}
+		}
+	}
+}

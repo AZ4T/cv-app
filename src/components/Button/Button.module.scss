@@ -1,0 +1,21 @@
+.button {
+	display: inline-flex; /* make it a flexbox row */
+	align-items: center; /* vertically center icon + text */
+	justify-content: center; /* horizontally center if your button is wider than its contents */
+	gap: 10px; /* uniform spacing between icon & text */
+
+	padding: 10px 20px;
+	border-radius: 5px;
+	background-color: #222935;
+	border: none;
+	transition: background-color 0.2s ease-in;
+	cursor: pointer;
+	color: #fff;
+	font-size: 16px;
+}
+
+.button:hover {
+	background-color: #26c17e;
+}
+
+/* you can drop the .text.margin-left & .icon.vertical-align rules entirely */

@@ -1,0 +1,29 @@
+.wrapper {
+    ul {
+        li {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+    }
+
+    h5 {
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+    svg {
+        width: 28px;
+        max-height: 28px;
+
+        path {
+            fill: #26C17E;
+        }
+    }
+}
+
+.link {
+    text-decoration: none;
+    color: #222935;
+}

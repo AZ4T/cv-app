@@ -1,0 +1,65 @@
+.container {
+	position: fixed;
+	overflow: visible;
+	width: 270px;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	background-color: #222935;
+	transition: 0.5s ease;
+
+	&.collapsed {
+		width: 50px;
+
+		.text {
+			display: none;
+		}
+
+		.up,
+		.down {
+			display: none;
+		}
+	}
+
+	.down {
+		padding: 30px 0;
+		text-align: center;
+	}
+
+	.menu {
+		position: absolute;
+		top: 20px;
+		right: -28px;
+		width: 33px;
+		height: 30px;
+		background: #222935;
+		border: none;
+		border-radius: 4px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		z-index: 10;
+
+		.menu_icon {
+			padding-left: 6px;
+
+			path {
+				fill: white;
+			}
+		}
+	}
+
+	@media (max-width: 600px) {
+		width: 50px;
+
+		.button {
+			padding: 5px 15px;
+		}
+
+		.text {
+			display: none;
+		}
+	}
+}

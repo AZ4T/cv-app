@@ -1,0 +1,42 @@
+.wrapper {
+	display: flex;
+	gap: 30px;
+	color: #222935;
+	font-size: 16px;
+	margin-bottom: 30px;
+
+	.left {
+		width: 80px;
+
+		// any element followed by a <p> inside .left
+		* + p {
+			margin-top: 5px;
+		}
+
+		.company {
+			font-weight: 700;
+		}
+
+		.date {
+			font-weight: 400;
+			color: #667081;
+		}
+	}
+
+	.right {
+		// any element followed by a <p> inside .right
+		* + p {
+			margin-top: 5px;
+		}
+
+		.job {
+			font-weight: 700;
+		}
+
+		.description {
+			font-size: 14px;
+			font-weight: 400;
+			line-height: 1.5;
+		}
+	}
+}

@@ -1,0 +1,63 @@
+.sidebar {
+    background-color: #222935;
+    padding: 20px;
+}
+
+.sidebar li {
+    padding: 20px 20px;
+}
+
+.sidebar li a:hover span {
+    color: #26C17E;
+}
+
+.sidebar li a:hover .icon path {
+    fill: #26C17E;
+}
+
+.sidebar li *+span {
+    margin-left: 10px;
+}
+
+.sidebar li a:visited {
+    color: #667081;
+}
+
+.icon {
+    max-width: 15px;
+    max-height: 20px;
+}
+
+.navLink {
+    display: flex;
+    align-items: center;
+    color: #667081;
+    /* default text & icon color */
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.navLink .icon path {
+    fill: currentColor;
+    transition: fill 0.2s;
+}
+
+.navLink:hover,
+.navLink.active {
+    color: #26C17E;
+    /* this will recolor both text & SVG */
+}
+
+@media (max-width: 600px) {
+    .sidebar {
+        max-width: 10%;
+    }
+
+    .sidebar li {
+        padding: 20px 0px;
+    }
+
+    .sidebar li span {
+        display: none;
+    }
+}

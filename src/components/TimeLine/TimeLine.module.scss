@@ -1,0 +1,54 @@
+.timeline {
+	position: relative;
+	max-height: 80vh;
+	overflow: auto;
+	padding-left: 10px;
+
+	.item {
+		display: flex;
+		align-items: flex-start;
+		margin-bottom: 1rem;
+		padding-left: 1rem;
+		border-left: 4px solid #26c17e;
+
+		.date {
+			padding: 40px 0;
+			width: 50px;
+			text-align: right;
+			margin-right: 2rem;
+			font-size: 0.9rem;
+			color: #555;
+		}
+
+		.content {
+			position: relative;
+			flex: 1;
+			background: #f0f0f0;
+			padding: 1rem;
+			border-radius: 4px;
+
+			&::before {
+				content: '';
+				position: absolute;
+				left: -8px;
+				top: 45px;
+				width: 16px;
+				height: 16px;
+				background: #f0f0f0;
+				transform: rotate(45deg);
+			}
+
+			h4 {
+				margin: 0 0 0.5rem;
+				font-size: 1rem;
+				font-weight: bold;
+			}
+
+			p {
+				margin: 0;
+				font-size: 0.9rem;
+				line-height: 1.4;
+			}
+		}
+	}
+}
