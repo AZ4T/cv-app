@@ -46,6 +46,38 @@ const items: Item[] = [
 		text: 'Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis ',
 		sourceUrl: 'https://react.dev/',
 	},
+	{
+		id: 5,
+		category: 'ui',
+		image: image1,
+		title: 'Some text',
+		text: 'Donec pede justo, fringilla vel, aliquet nec, vulputate eget,',
+		sourceUrl: 'https://react.dev/',
+	},
+	{
+		id: 6,
+		category: 'code',
+		image: image2,
+		title: 'Another one',
+		text: 'Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis ',
+		sourceUrl: 'https://react.dev/',
+	},
+	{
+		id: 7,
+		category: 'ui',
+		image: image1,
+		title: 'And again',
+		text: 'Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis ',
+		sourceUrl: 'https://react.dev/',
+	},
+	{
+		id: 8,
+		category: 'code',
+		image: image2,
+		title: 'Last item',
+		text: 'Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis ',
+		sourceUrl: 'https://react.dev/',
+	},
 ];
 
 export default function Portfolio() {

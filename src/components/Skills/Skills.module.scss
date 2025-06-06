@@ -1,0 +1,226 @@
+/* Skills.module.scss */
+
+/* Container around everything (already present) */
+.container {
+	max-width: 600px;
+	margin: 0 auto;
+	padding: 1rem;
+	background: #fff;
+	border-radius: 6px;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Header row: “Skills” + toggler (already present) */
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 1rem;
+}
+.heading {
+	font-size: 1.5rem;
+	color: #2ecc71; /* same green as border */
+	margin: 0;
+}
+.toggleButton {
+	background-color: #2ecc71;
+	color: #fff;
+	border: 1px solid #27ae60;
+	padding: 0.4rem 0.8rem;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 0.9rem;
+}
+.toggleButton:hover {
+	background-color: #27ae60;
+}
+
+/* Text shown when no skills or loading (already present) */
+.infoText {
+	font-size: 0.9rem;
+	color: #555;
+	text-align: center;
+	margin-bottom: 0.5rem;
+}
+.errorText {
+	font-size: 0.9rem;
+	color: #e74c3c;
+	text-align: center;
+	margin-bottom: 0.5rem;
+}
+
+/* ============================
+   FORM WRAPPER (matches screenshot)
+   ============================ */
+.formWrapper {
+	/* 2px green border, full width, matching screenshot */
+	border: 2px solid #2ecc71;
+	border-radius: 4px;
+	padding: 1.5rem; /* space inside the green box */
+	margin-bottom: 2rem; /* gap below form before timeline */
+	background-color: #fff; /* keep white background inside */
+}
+
+/* Use a two-column grid: first column is the label, second is input (matching screenshot alignment) */
+.form {
+	display: grid;
+	grid-template-columns: 120px 1fr; /* labels ~120px wide, inputs fill remaining space */
+	gap: 1rem 1.5rem; /* 1rem vertical gap, 1.5rem horizontal gap */
+	align-items: center; /* vertically center label with its input */
+}
+
+/* Label styling (right‐aligned text in column) */
+.formRow label {
+	font-size: 0.9rem;
+	color: #333;
+	justify-self: end; /* right-align in its grid cell */
+	margin: 0;
+	white-space: nowrap; /* prevent wrapping of “Skill Name” text */
+}
+
+/* Input fields: match screenshot’s border, rounding, and padding */
+.formRow input,
+.formRow .formik-field /* in case Field maps to input */ {
+	width: 100%;
+	padding: 0.5rem;
+	font-size: 1rem;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+/* On focus: green outline like screenshot */
+.formRow input:focus,
+.formRow .formik-field:focus {
+	outline: none;
+	border-color: #2ecc71;
+	box-shadow: 0 0 0 2px rgba(46, 204, 113, 0.2);
+}
+
+/* Error messages appear directly underneath their input (in same column) */
+.errorMessage {
+	grid-column: 2 / 3; /* span only the input’s column */
+	color: #e74c3c;
+	font-size: 0.8rem;
+	margin-top: 0.25rem;
+}
+
+/* “Add skill” button: placed under inputs, styled exactly like screenshot */
+.submitButton {
+	grid-column: 2 / 3; /* align under second column */
+	margin-top: 1rem; /* extra gap above button */
+	background-color: #5f6b7a; /* match screenshot’s dark gray/blue */
+	color: #fff;
+	border: none;
+	padding: 0.6rem 1rem;
+	border-radius: 4px;
+	font-size: 0.9rem;
+	cursor: pointer;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+.submitButton:hover:not(:disabled) {
+	background-color: #4f5762;
+}
+.submitButton:disabled {
+	background-color: #bdc3c7;
+	cursor: not-allowed;
+}
+
+/* ============================
+   SKILL BAR LIST (already present)
+   ============================ */
+.skillList {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	margin-bottom: 2rem; /* leave space for timeline below */
+}
+
+.skillBarContainer {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.skillLabel {
+	flex: 1;
+	font-size: 1rem;
+	color: #333;
+}
+
+.skillBarBackground {
+	flex: 3;
+	background-color: #ecf0f1;
+	border-radius: 4px;
+	height: 16px;
+	position: relative;
+	overflow: hidden;
+}
+
+.skillBarFill {
+	background-color: #2ecc71;
+	height: 100%;
+	border-radius: 4px 0 0 4px;
+	transition: width 0.3s ease-in-out;
+}
+
+.skillPercent {
+	flex: 0 0 auto;
+	font-size: 0.9rem;
+	color: #333;
+	width: 40px; /* fixed width so percentages line up */
+	text-align: right;
+}
+
+/* ============================
+   TIMELINE BELOW FORM (matches screenshot)
+   ============================ */
+.timelineContainer {
+	position: relative;
+	margin: 0 auto;
+	width: 100%;
+}
+
+.timelineLine {
+	border-top: 1px solid #ccc;
+	position: relative;
+	margin-bottom: 0.5rem;
+}
+
+/* Four evenly spaced tick marks */
+.timelineTick {
+	position: absolute;
+	top: -4px;
+	width: 1px;
+	height: 8px;
+	background-color: #ccc;
+}
+
+/* Position ticks at 0%, 33.33%, 66.66%, and 100% of width */
+/* In your React, you’d render four <div className={styles.timelineTick} style={{ left: '0%' }}>, etc. */
+.timelineTick:nth-child(1) {
+	left: 0%;
+}
+.timelineTick:nth-child(2) {
+	left: 33.33%;
+}
+.timelineTick:nth-child(3) {
+	left: 66.66%;
+}
+.timelineTick:nth-child(4) {
+	left: 100%;
+}
+
+/* Label row under the ticks */
+.timelineLabels {
+	display: flex;
+	justify-content: space-between;
+	font-size: 0.9rem;
+	color: #333;
+	padding: 0 2px; /* slight padding so the “Master” label doesn’t sit flush against edge */
+}
+
+.timelineLabel {
+	flex: 1;
+	text-align: center;
+}

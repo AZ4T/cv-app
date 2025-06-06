@@ -8,6 +8,7 @@ type ButtonProps = {
 	classNameButton?: string;
 	classNameText?: string;
 	onClick?: () => void;
+	disabled?: boolean;
 };
 
 export default function Button({
@@ -16,9 +17,15 @@ export default function Button({
 	classNameButton = '',
 	classNameText = '',
 	onClick,
+	disabled,
 }: ButtonProps) {
 	return (
-		<button className={`${styles.button} ${classNameButton}`} onClick={onClick}>
+		<button
+			className={`${styles.button} ${classNameButton}`}
+			onClick={onClick}
+			disabled={disabled}
+			data-testid="my-button"
+		>
 			{icon && <FontAwesomeIcon icon={icon} className={styles.icon} />}
 			<span className={`${styles.text} ${classNameText}`}>{text}</span>
 		</button>
