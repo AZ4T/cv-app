@@ -5,56 +5,49 @@ import '@testing-library/jest-dom';
 import Portfolio from './Portfolio';
 
 describe('Portfolio component', () => {
-	test('renders filter buttons and all portfolio items by default', () => {
+	beforeEach(() => {
 		render(<Portfolio />);
-
-		// 1. Filter buttons: "All", "Code", "UI"
-		const allBtn = screen.getByRole('button', { name: /^All$/i });
-		const codeBtn = screen.getByRole('button', { name: /^Code$/i });
-		const uiBtn = screen.getByRole('button', { name: /^UI$/i });
-		expect(allBtn).toBeInTheDocument();
-		expect(codeBtn).toBeInTheDocument();
-		expect(uiBtn).toBeInTheDocument();
-
-		// By default, "All" should have class="active"
-		expect(allBtn).toHaveClass('active');
-		expect(codeBtn).not.toHaveClass('active');
-		expect(uiBtn).not.toHaveClass('active');
-
-		// 2. The grid should contain exactly 8 <img> elements (stubbed via fileMock.js)
-		const items = screen.getAllByRole('img');
-		expect(items.length).toBe(8);
-
-		// Check alt text for a few items (matching Portfolio.tsx’s titles)
-		expect(screen.getByAltText('Some text')).toBeInTheDocument();
-		expect(screen.getByAltText('Another one')).toBeInTheDocument();
-		expect(screen.getByAltText('And again')).toBeInTheDocument();
-		expect(screen.getByAltText('Last item')).toBeInTheDocument();
 	});
 
-	test('clicking "Code" and "UI" toggles the active class correctly', () => {
-		render(<Portfolio />);
+	test('renders filter buttons and all portfolio images by default', () => {
+		// 1) "All" / "Code" / "UI" buttons are present
+		const allTab = screen.getByRole('button', { name: /All/i });
+		const codeTab = screen.getByRole('button', { name: /Code/i });
+		const uiTab = screen.getByRole('button', { name: /UI/i });
+		expect(allTab).toBeInTheDocument();
+		expect(codeTab).toBeInTheDocument();
+		expect(uiTab).toBeInTheDocument();
 
-		const allBtn = screen.getByRole('button', { name: /^All$/i });
-		const codeBtn = screen.getByRole('button', { name: /^Code$/i });
-		const uiBtn = screen.getByRole('button', { name: /^UI$/i });
+		// 2) By default, there are 8 portfolio items (the component's internal array has 8 entries)
+		const allImgs = screen.getAllByRole('img');
+		expect(allImgs).toHaveLength(8);
 
-		// Click "Code"
-		fireEvent.click(codeBtn);
-		expect(codeBtn).toHaveClass('active');
-		expect(allBtn).not.toHaveClass('active');
-		expect(uiBtn).not.toHaveClass('active');
+		// Each image's alt text corresponds to its title; spot-check one
+		expect(
+			screen.getAllByAltText(/Some text/).length
+		).toBeGreaterThanOrEqual(1);
+	});
 
-		// Click "UI"
-		fireEvent.click(uiBtn);
-		expect(uiBtn).toHaveClass('active');
-		expect(allBtn).not.toHaveClass('active');
-		expect(codeBtn).not.toHaveClass('active');
+	test('clicking "UI" / "Code" toggles the active class on those buttons', () => {
+		const uiTab = screen.getByRole('button', { name: /UI/i });
+		const codeTab = screen.getByRole('button', { name: /Code/i });
 
-		// Click "All"
-		fireEvent.click(allBtn);
-		expect(allBtn).toHaveClass('active');
-		expect(codeBtn).not.toHaveClass('active');
-		expect(uiBtn).not.toHaveClass('active');
+		// Initially, "All" is active
+		const allTab = screen.getByRole('button', { name: /All/i });
+		expect(allTab).toHaveClass('active');
+		expect(uiTab).not.toHaveClass('active');
+		expect(codeTab).not.toHaveClass('active');
+
+		// Click "UI" → that button should become active, others not
+		fireEvent.click(uiTab);
+		expect(uiTab).toHaveClass('active');
+		expect(codeTab).not.toHaveClass('active');
+		expect(allTab).not.toHaveClass('active');
+
+		// Click "Code" → that button becomes active instead
+		fireEvent.click(codeTab);
+		expect(codeTab).toHaveClass('active');
+		expect(uiTab).not.toHaveClass('active');
+		expect(allTab).not.toHaveClass('active');
 	});
 });

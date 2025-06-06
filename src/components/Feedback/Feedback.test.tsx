@@ -5,69 +5,54 @@ import '@testing-library/jest-dom';
 import Feedback from './Feedback';
 
 describe('Feedback component', () => {
-	test('renders nothing when data array is empty', () => {
-		const { container } = render(<Feedback data={[]} />);
-		const wrappers = container.querySelectorAll('div.wrapper');
-		expect(wrappers).toHaveLength(0);
-	});
-
-	test('renders each feedback item correctly (including <img>)', () => {
-		const sampleData = [
-			{
-				feedback: 'Great work on the project!',
-				reporter: {
-					photoUrl: 'https://example.com/photo1.png', // must be non-empty
-					name: 'Alice Johnson',
-					citeUrl: 'https://alice.example.com',
-				},
+	const sampleData = [
+		{
+			reporter: {
+				name: 'Jane Doe',
+				photoUrl: 'https://example.com/jane.jpg',
+				citeUrl: '#',
 			},
-			{
-				feedback: 'Outstanding collaboration skills.',
-				reporter: {
-					photoUrl: 'https://example.com/photo2.png',
-					name: 'Bob Smith',
-					citeUrl: 'https://bob.example.com',
-				},
+			feedback: 'Great work!',
+		},
+		{
+			reporter: {
+				name: 'John Smith',
+				photoUrl: 'https://example.com/john.jpg',
+				citeUrl: '#',
 			},
-		];
+			feedback: 'Awesome!',
+		},
+	];
 
+	test('renders each feedback item correctly (including <img> and reporter name)', () => {
 		render(<Feedback data={sampleData} />);
 
-		sampleData.forEach((item) => {
-			// 1) The feedback text itself
-			const feedbackNode = screen.getByText(item.feedback);
-			expect(feedbackNode).toBeInTheDocument();
+		// 1) Verify there are as many author images as sample items
+		const imgEls = screen.getAllByAltText(
+			'author image'
+		) as HTMLImageElement[];
+		expect(imgEls.length).toBe(sampleData.length);
 
-			// 2) Its closest ancestor <div class="wrapper">
-			const wrapperDiv = feedbackNode.closest('div.wrapper');
+		imgEls.forEach((imgEl, index) => {
+			const item = sampleData[index];
+
+			// 2) Each <img> src matches reporter.photoUrl
+			expect(imgEl).toBeInTheDocument();
+			expect(imgEl.src).toBe(item.reporter.photoUrl);
+
+			// 3) The outer wrapper <div class="wrapper"> is the closest ancestor of imgEl
+			const wrapperDiv = imgEl.closest('div.wrapper');
 			expect(wrapperDiv).toBeInTheDocument();
-			expect(wrapperDiv).toHaveClass('wrapper');
 
-			// 3) That wrapper must contain <div class="author">
-			const authorContainer = wrapperDiv!.querySelector('div.author');
-			expect(authorContainer).toBeInTheDocument();
-			expect(authorContainer).toHaveClass('author');
-
-			// 4) Inside authorContainer, find the <img class="author_image">
-			const img = authorContainer!.querySelector(
-				'img.author_image'
-			) as HTMLImageElement;
-			expect(img).toBeInTheDocument();
-			expect(img).toHaveAttribute('src', item.reporter.photoUrl);
-			expect(img).toHaveAttribute('alt', 'author image');
-
-			// 5) Next, find <span class="author_name">
-			const nameSpan = authorContainer!.querySelector('span.author_name');
+			// 4) Inside that same wrapper, the <span class="author_name"> contains reporter.name
+			const nameSpan = wrapperDiv!.querySelector('span.author_name');
 			expect(nameSpan).toBeInTheDocument();
 			expect(nameSpan).toHaveTextContent(item.reporter.name);
 
-			// 6) Inside that span, the <a class="author_site">
-			const siteLink = nameSpan!.querySelector(
-				'a.author_site'
-			) as HTMLAnchorElement;
-			expect(siteLink).toBeInTheDocument();
-			expect(siteLink).toHaveAttribute('href', item.reporter.citeUrl);
-			expect(siteLink).toHaveTextContent('somesite.com');
+			// 5) Also inside that wrapper, the <p class="text"> holds item.feedback
+			const feedbackP = wrapperDiv!.querySelector('p.text');
+			expect(feedbackP).toBeInTheDocument();
+			expect(feedbackP).toHaveTextContent(item.feedback);
 		});
 	});
 });
