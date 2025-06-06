@@ -58,9 +58,6 @@ export default function Skills() {
 								style={{ width: `${skill.range}%` }}
 							/>
 						</div>
-						<div className={styles.skillPercent}>
-							{skill.range}%
-						</div>
 					</div>
 				))}
 				{skills.length === 0 && (
@@ -131,6 +128,15 @@ export default function Skills() {
 					</Formik>
 				</div>
 			)}
+
+			<div className={styles.scaleContainer}>
+				<div className={styles.scaleLabels}>
+					<span className={styles.scaleLabel}>Beginner</span>
+					<span className={styles.scaleLabel}>Proficient</span>
+					<span className={styles.scaleLabel}>Expert</span>
+					<span className={styles.scaleLabel}>Master</span>
+				</div>
+			</div>
 		</div>
 	);
 }

@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './TimeLine.module.scss';
-import type { AppDispatch, RootState } from '../../app/store';
+import type { AppDispatch } from '../../app/store';
+import type { RootState } from '../../app/types';
 import { useEffect } from 'react';
 import { fetchEducations } from '../../features/education/educationSlice';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

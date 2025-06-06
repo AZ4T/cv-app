@@ -1,5 +1,3 @@
-// src/components/PhotoBox/PhotoBox.test.tsx
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
@@ -22,7 +20,6 @@ describe('PhotoBox component', () => {
 			</MemoryRouter>
 		);
 
-		// Home <img class="home_image">
 		const homeImg = screen.getByRole('img', {
 			name: /user avatar/i,
 		}) as HTMLImageElement;
@@ -30,12 +27,10 @@ describe('PhotoBox component', () => {
 		expect(homeImg).toHaveClass('home_image');
 		expect(homeImg.src).toBe(commonProps.avatar);
 
-		// Home Name <h3 class="home_name">
 		const nameHeading = screen.getByRole('heading', { level: 3 });
 		expect(nameHeading).toHaveTextContent(commonProps.name);
 		expect(nameHeading).toHaveClass('home_name');
 
-		// Title <h4 class="title"> and Description <p class="description">
 		const titleHeading = screen.getByRole('heading', { level: 4 });
 		expect(titleHeading).toHaveTextContent(commonProps.title);
 		expect(titleHeading).toHaveClass('title');
@@ -56,7 +51,6 @@ describe('PhotoBox component', () => {
 			</MemoryRouter>
 		);
 
-		// Inner <img class="inner_image">
 		const innerImg = screen.getByRole('img', {
 			name: /user avatar/i,
 		}) as HTMLImageElement;
@@ -64,11 +58,9 @@ describe('PhotoBox component', () => {
 		expect(innerImg).toHaveClass('inner_image');
 		expect(innerImg.src).toBe(commonProps.avatar);
 
-		// Inner name <p class="inner_name">
 		const namePara = screen.getByText(commonProps.name);
 		expect(namePara).toHaveClass('inner_name');
 
-		// The home view’s <h3> and <h4> and description should be absent
 		expect(
 			screen.queryByRole('heading', { level: 3 })
 		).not.toBeInTheDocument();

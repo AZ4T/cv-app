@@ -1,226 +1,237 @@
 /* Skills.module.scss */
 
-/* Container around everything (already present) */
+/* ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
+/* VARIABLES (you can adjust these to suit your design system) */
+/* ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
+
+$main-color: #26c17e; // your “green” from the screenshots
+$gray-200: #f0f1f4; // very light gray for backgrounds / borders
+$gray-400: #bdc3c7; // mid-gray for borders/text
+$gray-600: #5f6c7b; // dark/medium gray for text
+$error-red: #e74c3c; // form validation error text.
+
+/* ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
+/* CONTAINER + HEADER + TOGGLE BUTTON */
+/* ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
+
 .container {
-	max-width: 600px;
-	margin: 0 auto;
-	padding: 1rem;
-	background: #fff;
-	border-radius: 6px;
-	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Header row: “Skills” + toggler (already present) */
-.header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin-bottom: 1rem;
-}
-.heading {
-	font-size: 1.5rem;
-	color: #2ecc71; /* same green as border */
-	margin: 0;
-}
-.toggleButton {
-	background-color: #2ecc71;
-	color: #fff;
-	border: 1px solid #27ae60;
-	padding: 0.4rem 0.8rem;
-	border-radius: 4px;
-	cursor: pointer;
-	font-size: 0.9rem;
-}
-.toggleButton:hover {
-	background-color: #27ae60;
-}
-
-/* Text shown when no skills or loading (already present) */
-.infoText {
-	font-size: 0.9rem;
-	color: #555;
-	text-align: center;
-	margin-bottom: 0.5rem;
-}
-.errorText {
-	font-size: 0.9rem;
-	color: #e74c3c;
-	text-align: center;
-	margin-bottom: 0.5rem;
-}
-
-/* ============================
-   FORM WRAPPER (matches screenshot)
-   ============================ */
-.formWrapper {
-	/* 2px green border, full width, matching screenshot */
-	border: 2px solid #2ecc71;
-	border-radius: 4px;
-	padding: 1.5rem; /* space inside the green box */
-	margin-bottom: 2rem; /* gap below form before timeline */
-	background-color: #fff; /* keep white background inside */
-}
-
-/* Use a two-column grid: first column is the label, second is input (matching screenshot alignment) */
-.form {
-	display: grid;
-	grid-template-columns: 120px 1fr; /* labels ~120px wide, inputs fill remaining space */
-	gap: 1rem 1.5rem; /* 1rem vertical gap, 1.5rem horizontal gap */
-	align-items: center; /* vertically center label with its input */
-}
-
-/* Label styling (right‐aligned text in column) */
-.formRow label {
-	font-size: 0.9rem;
-	color: #333;
-	justify-self: end; /* right-align in its grid cell */
-	margin: 0;
-	white-space: nowrap; /* prevent wrapping of “Skill Name” text */
-}
-
-/* Input fields: match screenshot’s border, rounding, and padding */
-.formRow input,
-.formRow .formik-field /* in case Field maps to input */ {
 	width: 100%;
-	padding: 0.5rem;
-	font-size: 1rem;
-	border: 1px solid #ccc;
-	border-radius: 4px;
+	margin: 0 auto;
 	box-sizing: border-box;
 }
 
-/* On focus: green outline like screenshot */
-.formRow input:focus,
-.formRow .formik-field:focus {
-	outline: none;
-	border-color: #2ecc71;
-	box-shadow: 0 0 0 2px rgba(46, 204, 113, 0.2);
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 24px;
 }
 
-/* Error messages appear directly underneath their input (in same column) */
-.errorMessage {
-	grid-column: 2 / 3; /* span only the input’s column */
-	color: #e74c3c;
-	font-size: 0.8rem;
-	margin-top: 0.25rem;
+.heading {
+	margin: 0;
+	font-size: 26px;
+	font-weight: 700;
+	color: $main-color;
 }
 
-/* “Add skill” button: placed under inputs, styled exactly like screenshot */
-.submitButton {
-	grid-column: 2 / 3; /* align under second column */
-	margin-top: 1rem; /* extra gap above button */
-	background-color: #5f6b7a; /* match screenshot’s dark gray/blue */
-	color: #fff;
+.toggleButton {
+	/* This class is passed to your <Button classNameButton={styles.toggleButton} …/> */
+	font-size: 14px;
+	color: white;
+	background-color: $gray-600;
 	border: none;
-	padding: 0.6rem 1rem;
+	padding: 8px 12px;
 	border-radius: 4px;
-	font-size: 0.9rem;
 	cursor: pointer;
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-}
-.submitButton:hover:not(:disabled) {
-	background-color: #4f5762;
-}
-.submitButton:disabled {
-	background-color: #bdc3c7;
-	cursor: not-allowed;
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+
+	&:hover {
+		background-color: darken($gray-600, 5%);
+	}
 }
 
-/* ============================
-   SKILL BAR LIST (already present)
-   ============================ */
+/* ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
+/* INFO + ERROR TEXTS (when loading or validation fails) */
+/* ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
+
+.infoText {
+	margin: 16px 0;
+	font-size: 14px;
+	color: $gray-600;
+}
+
+.errorText {
+	margin: 16px 0;
+	font-size: 14px;
+	color: $error-red;
+}
+
+/* ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
+/* SKILL LIST (each skill’s label + bar + percent) */
+/* ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
+
 .skillList {
 	display: flex;
 	flex-direction: column;
-	gap: 1rem;
-	margin-bottom: 2rem; /* leave space for timeline below */
+	gap: 12px; // space between each skill bar
+	margin-bottom: 32px;
 }
 
 .skillBarContainer {
 	display: flex;
 	align-items: center;
-	gap: 0.5rem;
+	gap: 12px; // space between label, bar, and percent text
 }
 
+/* －－－－ skill name (“React”, “CSS”, etc.) －－－－ */
 .skillLabel {
-	flex: 1;
-	font-size: 1rem;
-	color: #333;
+	position: absolute;
+	padding-left: 20px;
+	z-index: 4;
+	font-size: 16px;
+	color: white;
 }
 
+/* －－－－ background of the bar －－－－ */
 .skillBarBackground {
-	flex: 3;
-	background-color: #ecf0f1;
-	border-radius: 4px;
-	height: 16px;
-	position: relative;
+	flex: 1; // this makes the bar stretch to fill available space
+	background-color: $gray-200;
+	height: 30px;
 	overflow: hidden;
+	position: relative;
 }
 
+/* －－－－ fill of the bar (green, width = `${skill.range}%`) －－－－ */
 .skillBarFill {
-	background-color: #2ecc71;
 	height: 100%;
-	border-radius: 4px 0 0 4px;
+	background-color: $main-color;
 	transition: width 0.3s ease-in-out;
 }
 
+/* －－－－ numeric percentage “75%” displayed at right of bar －－－－ */
 .skillPercent {
-	flex: 0 0 auto;
-	font-size: 0.9rem;
-	color: #333;
-	width: 40px; /* fixed width so percentages line up */
+	min-width: 40px;
 	text-align: right;
+	font-size: 14px;
+	color: $gray-600;
 }
 
-/* ============================
-   TIMELINE BELOW FORM (matches screenshot)
-   ============================ */
-.timelineContainer {
+/* ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
+/* FORMIK FORM WRAPPER + FORM ROWS + BUTTON + ERROR MESSAGE */
+/* ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
+
+.formWrapper {
+	border: 2px solid $main-color;
+	border-radius: 6px;
+	padding: 20px;
+	margin-bottom: 32px;
+}
+
+/* Inside <Form className={styles.form}> */
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+/* Each row: label + input (+ error) */
+.formRow {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+/* Style the <Field> inputs automatically: */
+.formRow input {
+	padding: 8px 10px;
+	font-size: 14px;
+	border: 1px solid $gray-400;
+	border-radius: 4px;
+	outline: none;
+
+	&:focus {
+		border-color: $main-color;
+		box-shadow: 0 0 0 2px rgba($main-color, 0.2);
+	}
+}
+
+/* Error message below each Field */
+.errorMessage {
+	color: $error-red;
+	font-size: 12px;
+	margin-top: 2px;
+}
+
+/* Submit button (“Add skill”) */
+.submitButton {
+	align-self: flex-start; // keep button from stretching full width
+	background-color: $gray-600;
+	border: none;
+	color: white;
+	padding: 8px 14px;
+	font-size: 14px;
+	border-radius: 4px;
+	cursor: pointer;
+
+	&:disabled {
+		background-color: lighten($gray-400, 10%);
+		cursor: not-allowed;
+	}
+
+	&:not(:disabled):hover {
+		background-color: darken($gray-600, 5%);
+	}
+}
+
+/* ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
+/* BOTTOM SCALE (“Beginner ⎯ Proficient ⎯ Expert ⎯ Master”) */
+/* ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
+
+.scaleContainer {
+	margin-bottom: 80px;
 	position: relative;
-	margin: 0 auto;
-	width: 100%;
+	margin-top: 24px;
+	padding-top: 16px; // space for the ticks + labels
 }
 
-.timelineLine {
-	border-top: 1px solid #ccc;
-	position: relative;
-	margin-bottom: 0.5rem;
-}
-
-/* Four evenly spaced tick marks */
-.timelineTick {
+/* The horizontal baseline */
+.scaleContainer::before {
+	content: '';
 	position: absolute;
-	top: -4px;
-	width: 1px;
-	height: 8px;
-	background-color: #ccc;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 1px;
+	background-color: $gray-400;
 }
 
-/* Position ticks at 0%, 33.33%, 66.66%, and 100% of width */
-/* In your React, you’d render four <div className={styles.timelineTick} style={{ left: '0%' }}>, etc. */
-.timelineTick:nth-child(1) {
-	left: 0%;
-}
-.timelineTick:nth-child(2) {
-	left: 33.33%;
-}
-.timelineTick:nth-child(3) {
-	left: 66.66%;
-}
-.timelineTick:nth-child(4) {
-	left: 100%;
-}
-
-/* Label row under the ticks */
-.timelineLabels {
+/* Wrap all four labels in a flex row, spaced evenly */
+.scaleLabels {
 	display: flex;
 	justify-content: space-between;
-	font-size: 0.9rem;
-	color: #333;
-	padding: 0 2px; /* slight padding so the “Master” label doesn’t sit flush against edge */
+	position: relative;
 }
 
-.timelineLabel {
-	flex: 1;
+/* Each label (“Beginner”, etc.) */
+.scaleLabel {
+	position: relative;
+	font-size: 14px;
+	color: $gray-600;
+	margin-top: 8px; // push text below the horizontal line
 	text-align: center;
+	min-width: 1px; // allows flex to shrink but keep text intact
+}
+
+/* Draw a small vertical tick above each label, aligned to the baseline */
+.scaleLabel::before {
+	content: '';
+	position: absolute;
+	top: -8px; // 8px above the label’s top → positions tick right on the baseline
+	left: 50%; // center the tick horizontally at the label’s midpoint
+	transform: translateX(-50%);
+	width: 1px;
+	height: 8px;
+	background-color: $gray-400;
 }
