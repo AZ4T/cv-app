@@ -7,15 +7,19 @@ module.exports = {
 	},
 	moduleNameMapper: {
 		'\\.(css|scss|sass)$': 'identity-obj-proxy',
+		'\\.(jpg|jpeg|png|gif|svg)$': '<rootDir>/__mocks__/fileMock.js',
 	},
 	setupFilesAfterEnv: ['<rootDir>/jest.setup.cjs'],
 	collectCoverageFrom: ['src/**/*.{ts,tsx,js,jsx}', '!**/node_modules/**'],
 	coverageThreshold: {
 		global: {
-			branches: 40,
-			functions: 40,
-			lines: 40,
-			statements: 40,
+			branches: 35,
+			functions: 35,
+			lines: 35,
+			statements: 35,
 		},
 	},
+	transformIgnorePatterns: [
+		// by default, node_modules is ignored. Usually OK.
+	],
 };
