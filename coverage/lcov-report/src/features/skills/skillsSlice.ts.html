@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">36.36% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>8/22</span>
+                <span class='fraction'>0/22</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/6</span>
+                <span class='fraction'>0/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">36.36% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>8/22</span>
+                <span class='fraction'>0/22</span>
             </div>
         
             
@@ -131,7 +131,7 @@
 <a name='L66'></a><a href='#L66'>66</a>
 <a name='L67'></a><a href='#L67'>67</a>
 <a name='L68'></a><a href='#L68'>68</a>
-<a name='L69'></a><a href='#L69'>69</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L69'></a><a href='#L69'>69</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -145,13 +145,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -172,16 +172,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -197,9 +197,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';</span>
 &nbsp;
 export type SkillItem = {
 	id: string;
@@ -213,13 +213,13 @@ type SkillInitialState = {
 	errorMessage: string | null;
 };
 &nbsp;
-const initialState: SkillInitialState = {
+const initialState: SkillInitialState = <span class="cstat-no" title="statement not covered" >{</span>
 	items: [],
 	status: 'idle',
 	errorMessage: null,
 };
 &nbsp;
-export const fetchSkills = createAsyncThunk&lt;
+export const <span class="cstat-no" title="statement not covered" >fetchSkills = createAsyncThunk&lt;</span>
 	SkillItem[],
 	void,
 	{ rejectValue: string }
@@ -240,16 +240,16 @@ export const fetchSkills = createAsyncThunk&lt;
 	}
 });
 &nbsp;
-const skillsSlice = createSlice({
+const skillsSlice = <span class="cstat-no" title="statement not covered" >createSlice({</span>
 	name: 'skills',
 	initialState,
 	reducers: {
-		addSkill(state: SkillInitialState, action: { payload: SkillItem }) {
-			state.items.push(action.payload);
+<span class="fstat-no" title="function not covered" >		addSkill(</span>state: SkillInitialState, action: { payload: SkillItem }) {
+<span class="cstat-no" title="statement not covered" >			state.items.push(action.payload);</span>
 		},
 	},
-	extraReducers: (builder) =&gt; {
-		builder
+	extraReducers: <span class="fstat-no" title="function not covered" >(b</span>uilder) =&gt; {
+<span class="cstat-no" title="statement not covered" >		builder</span>
 			.addCase(fetchSkills.pending, <span class="fstat-no" title="function not covered" >(s</span>tate) =&gt; {
 <span class="cstat-no" title="statement not covered" >				state.status = 'loading';</span>
 <span class="cstat-no" title="statement not covered" >				state.errorMessage = null;</span>
@@ -265,8 +265,8 @@ const skillsSlice = createSlice({
 	},
 });
 &nbsp;
-export const { addSkill } = skillsSlice.actions;
-export default skillsSlice.reducer;
+export const { <span class="cstat-no" title="statement not covered" >addSkill } = skillsSlice.actions;</span>
+<span class="cstat-no" title="statement not covered" >export default skillsSlice.reducer;</span>
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -274,7 +274,7 @@ export default skillsSlice.reducer;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-06-06T17:02:24.726Z
+                at 2025-06-07T11:17:25.708Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1749229344755" clover="3.2.0">
-  <project timestamp="1749229344755" name="All files">
-    <metrics statements="237" coveredstatements="131" conditionals="53" coveredconditionals="31" methods="68" coveredmethods="40" elements="358" coveredelements="202" complexity="0" loc="237" ncloc="237" packages="19" files="22" classes="22"/>
+<coverage generated="1749295045728" clover="3.2.0">
+  <project timestamp="1749295045728" name="All files">
+    <metrics statements="237" coveredstatements="100" conditionals="53" coveredconditionals="21" methods="68" coveredmethods="29" elements="358" coveredelements="150" complexity="0" loc="237" ncloc="237" packages="19" files="22" classes="22"/>
     <package name="src">
       <metrics statements="17" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="App.tsx" path="/Users/azatbolatbekov/VScode/Web/epam/cv-app/src/App.tsx">
@@ -79,10 +79,10 @@
       <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
       <file name="Button.tsx" path="/Users/azatbolatbekov/VScode/Web/epam/cv-app/src/components/Button/Button.tsx">
         <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
-        <line num="2" count="3" type="stmt"/>
-        <line num="3" count="3" type="stmt"/>
-        <line num="14" count="3" type="stmt"/>
-        <line num="22" count="14" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="22" count="7" type="stmt"/>
       </file>
     </package>
     <package name="src.components.Expertise">
@@ -197,32 +197,32 @@
       </file>
     </package>
     <package name="src.components.Skills">
-      <metrics statements="23" coveredstatements="23" conditionals="12" coveredconditionals="10" methods="9" coveredmethods="9"/>
+      <metrics statements="23" coveredstatements="0" conditionals="12" coveredconditionals="0" methods="9" coveredmethods="0"/>
       <file name="Skills.tsx" path="/Users/azatbolatbekov/VScode/Web/epam/cv-app/src/components/Skills/Skills.tsx">
-        <metrics statements="23" coveredstatements="23" conditionals="12" coveredconditionals="10" methods="9" coveredmethods="9"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="9" count="1" type="stmt"/>
-        <line num="10" count="1" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
-        <line num="21" count="1" type="stmt"/>
-        <line num="22" count="7" type="stmt"/>
-        <line num="24" count="11" type="stmt"/>
-        <line num="25" count="11" type="stmt"/>
-        <line num="26" count="11" type="stmt"/>
-        <line num="28" count="7" type="stmt"/>
-        <line num="30" count="7" type="stmt"/>
-        <line num="38" count="3" type="stmt"/>
-        <line num="53" count="1" type="stmt"/>
-        <line num="75" count="1" type="stmt"/>
-        <line num="80" count="1" type="stmt"/>
-        <line num="81" count="1" type="stmt"/>
-        <line num="82" count="1" type="stmt"/>
-        <line num="86" count="15" type="stmt"/>
+        <metrics statements="23" coveredstatements="0" conditionals="12" coveredconditionals="0" methods="9" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="75" count="0" type="stmt"/>
+        <line num="80" count="0" type="stmt"/>
+        <line num="81" count="0" type="stmt"/>
+        <line num="82" count="0" type="stmt"/>
+        <line num="86" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.components.TimeLine">
@@ -279,12 +279,12 @@
       </file>
     </package>
     <package name="src.features.skills">
-      <metrics statements="22" coveredstatements="8" conditionals="4" coveredconditionals="0" methods="6" coveredmethods="2"/>
+      <metrics statements="22" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="6" coveredmethods="0"/>
       <file name="skillsSlice.ts" path="/Users/azatbolatbekov/VScode/Web/epam/cv-app/src/features/skills/skillsSlice.ts">
-        <metrics statements="22" coveredstatements="8" conditionals="4" coveredconditionals="0" methods="6" coveredmethods="2"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
-        <line num="21" count="1" type="stmt"/>
+        <metrics statements="22" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="6" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
         <line num="26" count="0" type="stmt"/>
         <line num="27" count="0" type="stmt"/>
         <line num="28" count="0" type="cond" truecount="0" falsecount="2"/>
@@ -293,17 +293,17 @@
         <line num="32" count="0" type="stmt"/>
         <line num="35" count="0" type="stmt"/>
         <line num="36" count="0" type="stmt"/>
-        <line num="42" count="1" type="stmt"/>
-        <line num="47" count="1" type="stmt"/>
-        <line num="51" count="1" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
         <line num="53" count="0" type="stmt"/>
         <line num="54" count="0" type="stmt"/>
         <line num="57" count="0" type="stmt"/>
         <line num="58" count="0" type="stmt"/>
         <line num="61" count="0" type="stmt"/>
         <line num="62" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="67" count="1" type="stmt"/>
-        <line num="68" count="1" type="stmt"/>
+        <line num="67" count="0" type="stmt"/>
+        <line num="68" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.pages.Home">
