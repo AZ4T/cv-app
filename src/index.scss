@@ -39,7 +39,7 @@ ol, ul {
 blockquote, q {
   quotes: none;
 
-  /* nest the pseudo-elements */
+  /* Nest the pseudo-elements */
   &::before,
   &::after {
     content: '';
